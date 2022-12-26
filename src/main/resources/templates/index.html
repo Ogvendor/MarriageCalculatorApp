@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Marriage Calculator</title>
+</head>
+<body>
+    <form action="couple" th:object="${MarriageCalculator}" method="post">
+        <table>
+            <tr>
+                <td><label>BoyName</label></td>
+                <td><input type="text" name="boy-name" ></td>
+            </tr>
+
+            <tr>
+                <td><label> GirlName</label></td>
+                <td><input type="text" name="boy-name"></td>
+            </tr>
+
+            <tr>
+                <td><label>BoyAge</label></td>
+                <td><input type="text" name="boy-name"></td>
+            </tr>
+
+            <tr>
+                <td><label>GirlAge</label></td>
+                <td><input type="text" name="boy-name"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
