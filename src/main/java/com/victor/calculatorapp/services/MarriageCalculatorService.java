@@ -5,7 +5,7 @@ import com.victor.calculatorapp.data.repositories.MarriageCalculatorRepository;
 import com.victor.calculatorapp.payload.request.MarriageCalculatorDto;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface MarriageCalculatorService {
 
     MarriageCalculator saveCouple(MarriageCalculatorDto marriageCalculatorDto);

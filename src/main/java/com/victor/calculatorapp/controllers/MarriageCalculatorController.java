@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class MarriageCalculatorController {
     private MarriageCalculatorService marriageCalculatorService;
 
+    @PostMapping("/saves")
+    public String saveCouples(@ModelAttribute("marriageCalculator") MarriageCalculatorDto marriageCalculatorDto) {
+        marriageCalculatorService.saveCouple(marriageCalculatorDto);
+        return "result";
+    }
+
 
     @PostMapping("/couple")
     public ResponseEntity<?> saveCouple(@RequestBody MarriageCalculatorDto marriageCalculatorDto){

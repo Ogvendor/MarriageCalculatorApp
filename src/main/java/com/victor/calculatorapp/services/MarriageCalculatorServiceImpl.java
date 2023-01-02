@@ -3,6 +3,7 @@ package com.victor.calculatorapp.services;
 import com.victor.calculatorapp.data.model.MarriageCalculator;
 import com.victor.calculatorapp.data.repositories.MarriageCalculatorRepository;
 import com.victor.calculatorapp.payload.request.MarriageCalculatorDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,7 +12,8 @@ import java.util.Optional;
 public class MarriageCalculatorServiceImpl implements MarriageCalculatorService{
 
 
-    private final MarriageCalculatorRepository marriageCalculatorRepository;
+    @Autowired
+    private MarriageCalculatorRepository marriageCalculatorRepository;
 
     public MarriageCalculatorServiceImpl(MarriageCalculatorRepository marriageCalculatorRepository) {
         this.marriageCalculatorRepository = marriageCalculatorRepository;
