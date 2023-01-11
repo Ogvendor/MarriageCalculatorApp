@@ -6,7 +6,11 @@ import com.victor.calculatorapp.services.MarriageCalculatorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RequestMapping("/api")
 @AllArgsConstructor
@@ -14,11 +18,26 @@ import org.springframework.web.bind.annotation.*;
 public class MarriageCalculatorController {
     private MarriageCalculatorService marriageCalculatorService;
 
-    @PostMapping("/saves")
-    public String saveCouples(@ModelAttribute("marriageCalculator") MarriageCalculatorDto marriageCalculatorDto) {
-        marriageCalculatorService.saveCouple(marriageCalculatorDto);
-        return "result";
+
+
+    @GetMapping("/saves")
+    public String saveCouples(Model model) {
+        model.addAttribute("formData", new MarriageCalculatorDto());
+        return "api/saves";
     }
+    @PostMapping("/saves")
+    public String saveMarriage(@Valid @ModelAttribute("formData") MarriageCalculatorDto formData,
+                               BindingResult bindingResult,
+                               Model model) {
+        if (bindingResult.hasErrors()) {
+            return "api/saves";
+        }
+
+        marriageCalculatorService.saveCouple(formData);
+
+        return "redirect:/api";
+    }
+
 
 
     @PostMapping("/couple")

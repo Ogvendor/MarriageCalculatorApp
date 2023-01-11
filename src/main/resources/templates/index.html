@@ -5,24 +5,24 @@
     <title>Marriage Calculator</title>
 </head>
 <body>
-    <form action="#" th:action="@{/saves}" th:object="${marriageCalculator}" method="POST">
+    <form action="#" th:action="@{/api/saves}" th:object="${formData}" method="POST">
         <label>BoyName</label>
-                <input type="text" th:field="*{boyName}" >
+                <input type="text" th:field="*{boyName}" name="boyName" >
 
 
 
                 <label> GirlName</label>
-                <input type="text" th:field="*{girlName}">
+                <input type="text" th:field="*{girlName}" name="girlName">
 
 
 
                 <label>BoyAge</label>
-                <input type="text" th:field="*{boyAge}">
+                <input type="text" th:field="*{boyAge}" name="boyAge">
 
 
 
                 <label>GirlAge</label>
-                <input type="text" th:field="*{girlAge}">
+                <input type="text" th:field="*{girlAge}" name="girlAge">
 
 
         <button type="submit">Save Couple</button>
